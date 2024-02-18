@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <!-- admin panel -->
+      <div class="admin">
+        <h1>Admin</h1>
+        <p>Add a new product</p>
+        <div class="addProductContainer">
+          <input
+            type="text"
+            class="text"
+            name="productName"
+            placeholder="Product name"
+            id="productName"
+          />
+          <button class="btn" onclick="addProduct()">Add Product</button>
+        </div>
+        <p>Select a product then add the price per unit</p>
+        <div class="addPriceContainer">
+          <!-- will add these using js -->
+          <select name="nameList" id="nameList"></select>
+          <input
+            type="text"
+            name="productPrice"
+            placeholder="price"
+            id="productPrice"
+          />
+          <button class="btn" onclick="addPrice()">Add price</button>
+        </div>
+      </div>
+      <!-- checkout -->
+      <div class="checkout">
+        <h1>Checkout</h1>
+        <section class="transactionContainer">
+          <button class="btn" onclick="newTransaction()">New transaction</button>
+        </section>
+        <p>Select a product then type the number of units</p>
+        <!-- will add using js -->
+        <select name="productList" id="productList"></select>
+        <label for="unit">Unit: </label>
+        <input type="text" name="unit" id="unit" value="1" />
+        <button class="btn" onclick="addToCart()">Add to Cart</button>
+        <div class="digitsContainer">
+          <button class="btn" onclick="addUnit(1)">1</button>
+          <button class="btn" onclick="addUnit(2)">2</button>
+          <button class="btn" onclick="addUnit(3)">3</button>
+          <button class="btn" onclick="addUnit(4)">3</button>
+          <button class="btn" onclick="addUnit(5)">5</button>
+          <button class="btn" onclick="addUnit(6)">6</button>
+          <button class="btn" onclick="addUnit(7)">7</button>
+          <button class="btn" onclick="addUnit(8)">8</button>
+          <button class="btn" onclick="addUnit(9)">9</button>
+        </div>
+        <div id="cart"></div>
+        <section class="payContainer">
+          <button class="btn" onclick="pay()">Pay</button>
+        </section>
+      </div>
+      <!-- Receipt -->
+      <div class="receipt">
+        <h1>Receipt</h1>
+        <table border="black">
+          <thead>
+            <tr>
+              <th colspan="4" id="date">Date:</th>
+            </tr>
+            <tr>
+              <th colspan="4" id="time">Time:</th>
+            </tr>
+            <tr>
+              <th>Product</th>
+              <th>$/unit</th>
+              <th>Unit(s)</th>
+              <th>Price</th>
+            </tr>
+          </thead>
+          <tbody id="recieptProducts">
+            
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="4" id="price">Total Price: 0</td>
+            </tr>
+            <tr>
+              <td colspan="4" id="tax">Taxes: 0</td>
+            </tr>
+            <tr>
+              <td colspan="4" id="totalPrice">Amount Due: 0</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
